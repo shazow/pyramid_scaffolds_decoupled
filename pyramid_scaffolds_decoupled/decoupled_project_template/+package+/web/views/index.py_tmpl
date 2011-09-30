@@ -1,0 +1,4 @@
+from {{package}} import models
+
+def index(request):
+    return {'hello': 'world'}

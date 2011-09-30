@@ -12,7 +12,9 @@ except ImportError, _:
 version = '1.0'
 long_description = open('README.rst').read()
 
-requirements = []
+requirements = [
+    'pyramid',
+]
 tests_requirements = requirements
 
 setup(name='pyramid_scaffolds_decoupled',
@@ -31,4 +33,9 @@ setup(name='pyramid_scaffolds_decoupled',
       packages=['pyramid_scaffolds_decoupled'],
       requires=requirements,
       tests_require=tests_requirements,
+
+      entry_points="""
+        [paste.paster_create_template]
+        pyramid_decoupled=pyramid_scaffolds_decoupled.paster:DecoupledProjectTemplate
+      """,
       )
