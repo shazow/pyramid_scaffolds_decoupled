@@ -16,8 +16,9 @@ session.secret = change_this_to_a_long_secret_string
 
 sqlalchemy.url = sqlite:///%(here)s/{{project}}.db
 
-mako.directories = {{project}}.web:templates
 mako.strict_undefined = true
+mako.directories = {{project}}.web:templates
+mako.module_directory = %(here)s/data/templates
 
 [server:main]
 use = egg:Paste#http
