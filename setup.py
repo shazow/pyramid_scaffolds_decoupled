@@ -9,7 +9,7 @@ except ImportError, _:
     pass # No 'develop' command, oh well.
 
 
-version = '1.0'
+version = '1.1'
 long_description = open('README.rst').read()
 
 requirements = [
@@ -25,7 +25,7 @@ setup(name='pyramid_scaffolds_decoupled',
           'Intended Audience :: Developers',
           'License :: OSI Approved :: MIT License',
           'Programming Language :: Python',
-          "Framework :: Pylons",
+          'Framework :: Pylons',
       ],
       author='Andrey Petrov',
       author_email='andrey.petrov@shazow.net',
@@ -35,7 +35,7 @@ setup(name='pyramid_scaffolds_decoupled',
       tests_require=tests_requirements,
 
       entry_points="""
-        [paste.paster_create_template]
-        pyramid_decoupled=pyramid_scaffolds_decoupled.paster:DecoupledProjectTemplate
+          [pyramid.scaffold]
+          pyramid_decoupled=pyramid_scaffolds_decoupled.scaffolds:DecoupledProjectTemplate
       """,
       )
