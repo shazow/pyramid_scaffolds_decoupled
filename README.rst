@@ -81,7 +81,7 @@ by daemons, tests, or web views.
 TODO
 ====
 
-* Fix ``{{project}}/tests`` (still has ``pyramid_routesalchemy`` code)
+* Add pyramid.i18n.TranslationStringFactory stuff.
 * Add an out-of-the-box SQLAlchemy setup
 * Maybe add optional TurboMail example?
 * Useful example for the api structure

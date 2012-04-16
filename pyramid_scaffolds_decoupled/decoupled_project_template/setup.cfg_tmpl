@@ -1,8 +1,8 @@
 [nosetests]
-nocapture=1
-cover-package={{package}}
-with-coverage=1
-cover-erase=1
+nocapture= 1
+cover-package= {{package}}
+with-coverage= 1
+cover-erase= 1
 
 [compile_catalog]
 directory = {{package}}/locale

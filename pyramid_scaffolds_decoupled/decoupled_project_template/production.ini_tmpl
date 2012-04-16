@@ -1,29 +1,54 @@
 [app:main]
 use = egg:{{project}}
 
-pyramid.reload_templates = false
-pyramid.debug_authorization = false
-pyramid.debug_notfound = false
-pyramid.debug_routematch = false
-pyramid.debug_templates = false
-pyramid.default_locale_name = en
+# Pyramid
+reload_templates = false
+debug_authorization = false
+debug_notfound = false
+debug_routematch = false
+debug_templates = false
 
+# Sessions
 session.type = file
 session.data_dir = %(here)s/data/sessions/data
 session.lock_dir = %(here)s/data/sessions/lock
 session.key = {{project}}
-session.secret = change_this_to_a_long_secret_string
+session.secret = {{random_string}}
 
+# Database
 sqlalchemy.url = sqlite:///%(here)s/{{project}}.db
 
-mako.strict_undefined = true
+# Templates
 mako.directories = {{project}}.web:templates
-mako.module_directory = %(here)s/data/templates
+mako.strict_undefined = true
+
+
+[filter:weberror]
+use = egg:WebError#error_catcher
+debug = false
+;error_log = 
+;show_exceptions_in_wsgi_errors = true
+;smtp_server = localhost
+;error_email = janitor@example.com
+;smtp_username = janitor
+;smtp_password = "janitor's password"
+;from_address = paste@localhost
+;error_subject_prefix = "Pyramid Error"
+;smtp_use_tls =
+;error_message =
+
+
+[pipeline:main]
+pipeline =
+    weberror
+    {{project}}
+
 
 [server:main]
-use = egg:Paste#http
+use = egg:pyramid#wsgiref
 host = 0.0.0.0
-port = 6543
+port = 5000
+
 
 # Begin logging configuration
 

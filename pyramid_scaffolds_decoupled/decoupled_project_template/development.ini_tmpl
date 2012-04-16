@@ -1,29 +1,38 @@
 [app:main]
 use = egg:{{project}}
 
-pyramid.reload_templates = true
-pyramid.debug_authorization = false
-pyramid.debug_notfound = false
-pyramid.debug_routematch = false
-pyramid.debug_templates = true
-pyramid.default_locale_name = en
-pyramid.includes = pyramid_debugtoolbar
+# Pyramid
+reload_templates = true
+debug_authorization = false
+debug_notfound = false
+debug_routematch = false
+debug_templates = true
 
+# Sessions
 session.type = file
 session.data_dir = %(here)s/data/sessions/data
 session.lock_dir = %(here)s/data/sessions/lock
 session.key = {{project}}
 session.secret = somesecret
 
+# Database
 sqlalchemy.url = sqlite:///%(here)s/{{project}}.db
 
+# Templates
 mako.directories = {{project}}.web:templates
 mako.strict_undefined = true
 
+
+[pipeline:main]
+pipeline =
+    {{project}}
+
+
 [server:main]
-use = egg:Paste#http
+use = egg:pyramid#wsgiref
 host = 0.0.0.0
 port = 5000
+
 
 # Begin logging configuration
 
