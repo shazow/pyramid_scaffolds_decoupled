@@ -17,18 +17,16 @@ Usage
 Install: ::
 
     $ pip install https://github.com/shazow/pyramid_scaffolds_decoupled/tarball/master
-    $ paster create --list-templates
-    Available templates:
-      basic_package:           A basic setuptools-enabled package
-      ...
-    > pyramid_decoupled:       Decouple web-specific code from the rest (models, library api, etc).
-      pyramid_routesalchemy:   pyramid SQLAlchemy project using url dispatch (no traversal)
-      pyramid_starter:         pyramid starter project
-      ...
+    $ pcreate --list-templates
+    Available scaffolds:
+      alchemy:  Pyramid SQLAlchemy project using url dispatch
+      starter:  Pyramid starter project
+      zodb:     Pyramid ZODB project using traversal
+
 
 Create a project: ::
 
-    $ paster create -t pyramid_decoupled foo
+    $ pcreate -s pyramid_decoupled foo
     $ cd foo
     $ find . | manualediting
     ./CHANGES.txt
