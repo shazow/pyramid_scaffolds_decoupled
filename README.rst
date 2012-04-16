@@ -17,18 +17,19 @@ Usage
 Install: ::
 
     $ pip install https://github.com/shazow/pyramid_scaffolds_decoupled/tarball/master
-    $ pcreate --list-templates
+    $ pcreate --list
     Available scaffolds:
-      alchemy:  Pyramid SQLAlchemy project using url dispatch
-      starter:  Pyramid starter project
-      zodb:     Pyramid ZODB project using traversal
+      alchemy:           Pyramid SQLAlchemy project using url dispatch
+   -> pyramid_decoupled: Decouple web-specific code from the rest (models, library api, etc).
+      starter:           Pyramid starter project
+      zodb:              Pyramid ZODB project using traversal
 
 
 Create a project: ::
 
     $ pcreate -s pyramid_decoupled foo
     $ cd foo
-    $ find . | manualediting
+    $ find .
     ./CHANGES.txt
     ./MANIFEST.in
     ./README.txt
@@ -58,6 +59,15 @@ Create a project: ::
     ./foo/web/views/index.py
     ./setup.cfg
     ./setup.py
+
+
+Start the server: ::
+
+    $ python setup.py develop
+    ... (Installs dependencies like pyramid-debugtoolbar, waittress, etc.)
+    $ pserve development.ini 
+    Starting server in PID 32481.
+    serving on http://0.0.0.0:5000
 
 
 Suggested Structure
