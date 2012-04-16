@@ -2,11 +2,13 @@
 use = egg:{{project}}
 
 # Pyramid
-reload_templates = true
-debug_authorization = false
-debug_notfound = false
-debug_routematch = false
-debug_templates = true
+pyramid.reload_templates = true
+pyramid.debug_authorization = false
+pyramid.debug_notfound = false
+pyramid.debug_routematch = false
+pyramid.default_locale_name = en
+pyramid.includes =
+    pyramid_debugtoolbar
 
 # Sessions
 session.type = file
@@ -23,13 +25,8 @@ mako.directories = {{project}}.web:templates
 mako.strict_undefined = true
 
 
-[pipeline:main]
-pipeline =
-    {{project}}
-
-
 [server:main]
-use = egg:pyramid#wsgiref
+use = egg:waitress#main
 host = 0.0.0.0
 port = 5000
 
