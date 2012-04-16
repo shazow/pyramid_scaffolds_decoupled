@@ -36,6 +36,6 @@ setup(name='pyramid_scaffolds_decoupled',
 
       entry_points="""
           [pyramid.scaffold]
-          pyramid_decoupled=pyramid_scaffolds_decoupled.scaffolds:DecoupledProjectTemplate
+          pyramid_decoupled=pyramid_scaffolds_decoupled:DecoupledProjectTemplate
       """,
       )
