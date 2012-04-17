@@ -1,5 +1,8 @@
 An unofficial scaffolding for Pyramid. Recommended for advanced Pyramid or Pylons developers.
 
+Contains somewhat opinionated examples that can be easily replaced.
+
+
 Highlights
 ==========
 
@@ -41,7 +44,9 @@ Create a project: ::
     ./foo/lib/__init__.py
     ./foo/lib/helpers.py           <- Available as 'h' in templates.
     ./foo/models
-    ./foo/models/__init__.py       <- Unopinionated model submodule.
+    ./foo/models/__init__.py       <- Unopinionated model submodule with a
+    ./foo/models/meta.py              moderately advanced example setup.
+    ./foo/models/objects.py
     ./foo/tests
     ./foo/tests/__init__.py
     ./foo/web
@@ -64,7 +69,7 @@ Create a project: ::
 Start the server: ::
 
     $ python setup.py develop
-    ... (Installs dependencies like pyramid-debugtoolbar, waittress, etc.)
+    ... (Installs dependencies like pyramid-debugtoolbar, waitress, etc.)
     $ pserve development.ini 
     Starting server in PID 32481.
     serving on http://0.0.0.0:5000
@@ -90,7 +95,6 @@ TODO
 ====
 
 * Add pyramid.i18n.TranslationStringFactory stuff.
-* Add an out-of-the-box SQLAlchemy setup
 * Maybe add optional TurboMail example?
 * Useful example for the api structure
 * More documentation
