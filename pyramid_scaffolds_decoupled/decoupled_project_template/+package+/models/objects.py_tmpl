@@ -11,6 +11,9 @@ import logging
 log = logging.getLogger(__name__)
 
 
+__all__ = ['User']
+
+
 class User(BaseModel):
     __tablename__ = 'user'
 
