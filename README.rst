@@ -95,6 +95,6 @@ TODO
 ====
 
 * Add pyramid.i18n.TranslationStringFactory stuff.
-* Maybe add optional TurboMail example?
+* Maybe add optional TurboMail/marrow.mailer example?
 * Useful example for the api structure
 * More documentation
