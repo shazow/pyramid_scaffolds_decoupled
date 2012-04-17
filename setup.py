@@ -13,7 +13,7 @@ version = '1.1'
 long_description = open('README.rst').read()
 
 requirements = [
-    'pyramid>=1.3',
+    'pyramid',
 ]
 tests_requirements = requirements
 

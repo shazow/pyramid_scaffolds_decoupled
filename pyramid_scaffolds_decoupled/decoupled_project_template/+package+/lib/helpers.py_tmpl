@@ -34,3 +34,19 @@ def stylesheet_link(*urls, **attrs):
 
 def javascript_link(*urls, **attrs):
     return tags.javascript_link(*(url_append_timestamp(u) for u in urls), **attrs)
+
+
+
+# This and other handy utilities are part of unstdlib (pip install unstdlib)
+
+import random
+import string
+
+
+def random_string(length=6, alphabet=string.letters+string.digits):
+    """
+    Return a random string of given length and alphabet.
+
+    Default alphabet is url-friendly (base62).
+    """
+    return ''.join([random.choice(alphabet) for i in xrange(length)])

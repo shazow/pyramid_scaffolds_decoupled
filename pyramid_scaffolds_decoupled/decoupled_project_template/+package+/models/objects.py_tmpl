@@ -1,0 +1,43 @@
+from .meta import BaseModel
+
+from sqlalchemy import orm, types
+from sqlalchemy import Column, ForeignKey, Index, PrimaryKeyConstraint
+
+from datetime import datetime
+
+from {{project}}.lib.util import random_string
+
+import logging
+log = logging.getLogger(__name__)
+
+
+class User(BaseModel):
+    __tablename__ = 'user'
+
+    id = Column(types.Integer, primary_key=True)
+    time_created = Column(types.DateTime, default=datetime.now, nullable=False)
+    time_updated = Column(types.DateTime, onupdate=datetime.now)
+
+    date_last_seen = Column(types.Date)
+
+    is_admin = Column(types.Boolean, default=False, nullable=False)
+
+    # Email verification
+    email = Column(types.Unicode, nullable=False, index=True, unique=True)
+    email_confirmation = Column(types.String(16), default=lambda: random_string(16), nullable=False)
+
+    # Hashed password with some encoding
+    password = Column(types.String, nullable=False)
+
+
+    def _encode_password(self, password):
+        # TODO: Implement some password encoding algorithm (scrypt?)
+        pass
+
+    def set_password(self, password):
+        self.password = self._encode_password(password)
+
+    def compare_password(self, password):
+        if not self.password:
+            return False
+        return self.password == self._encode_password(password)
